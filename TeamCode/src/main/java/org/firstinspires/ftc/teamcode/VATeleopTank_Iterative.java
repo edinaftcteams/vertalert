@@ -53,10 +53,10 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 @TeleOp(name="Pushbot: Teleop Tank", group="Pushbot")
 @Disabled
-public class VATeleop_Iterative extends OpMode{
+public class VATeleopTank_Iterative extends OpMode{
 
     /* Declare OpMode members. */
-    HardwarePushbot robot       = new HardwarePushbot(); // use the class created to define a Pushbot's hardware
+    VAPushbot robot       = new VAPushbot(); // use the class created to define a Pushbot's hardware
                                                          // could also use HardwarePushbotMatrix class.
     double          clawOffset  = 0.0 ;                  // Servo mid position
     final double    CLAW_SPEED  = 0.02 ;                 // sets rate to move servo
@@ -101,8 +101,10 @@ public class VATeleop_Iterative extends OpMode{
         left = -gamepad1.left_stick_y;
         right = -gamepad1.right_stick_y;
 
-        robot.leftDrive.setPower(left);
-        robot.rightDrive.setPower(right);
+        robot.leftbackDrive.setPower(left);
+        robot.rightbackDrive.setPower(right);
+        robot.leftfrontDrive.setPower(left);
+        robot.rightfrontDrive.setPower(right);
 
         // Use gamepad left & right Bumpers to open and close the claw
         if (gamepad1.right_bumper)
