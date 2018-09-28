@@ -118,15 +118,18 @@ public class VATeleopTank_Iterative extends OpMode{
         robot.BackSpinner.setPosition(robot.MID_SERVO - clawOffset);
 
         // Use gamepad buttons to move the arm up (Y) and down (A)
-            if (gamepad1.y)
-            robot.FrontSpinner.setPosition(robot.ARM_UP_POWER);
-            robot.BackSpinner.setPosition(robot.ARM_UP_POWER);
-            else if (gamepad1.a)
-            robot.FrontSpinner.setPosition(robot.ARM_DOWN_POWER);
-            robot.BackSpinner.setPosition(robot.ARM_DOWN_POWER);
-            else
-            robot.FrontSpinner.setPosition(0.0);
-            robot.BackSpinner.setPosition(0.0);
+            if (gamepad1.y) {
+                robot.FrontSpinner.setPosition(robot.ARM_UP_POWER);
+                robot.BackSpinner.setPosition(robot.ARM_UP_POWER);
+            }
+            else if (gamepad1.a) {
+                robot.FrontSpinner.setPosition(robot.ARM_DOWN_POWER);
+                robot.BackSpinner.setPosition(robot.ARM_DOWN_POWER);
+            }
+            else {
+                robot.FrontSpinner.setPosition(0.0);
+                robot.BackSpinner.setPosition(0.0);
+            }
 
         // Send telemetry message to signify robot running;
         telemetry.addData("claw",  "Offset = %.2f", clawOffset);
