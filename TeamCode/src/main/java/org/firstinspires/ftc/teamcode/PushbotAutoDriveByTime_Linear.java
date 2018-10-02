@@ -98,7 +98,7 @@ public class PushbotAutoDriveByTime_Linear extends LinearOpMode {
 
         // Step 2:  Spin right for 1.3 seconds
         robot.leftDrive.setPower(TURN_SPEED);
-        robot.rightDrive.setPower(-TURN_SPEED);
+        robot.rightDrive.setPower(TURN_SPEED);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1.3)) {
             telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
