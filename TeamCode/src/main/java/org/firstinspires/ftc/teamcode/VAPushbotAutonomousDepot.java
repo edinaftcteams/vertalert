@@ -118,14 +118,20 @@ public class VAPushbotAutonomousDepot extends LinearOpMode {
 
         // Step 3:  Drive Backwards for 1 Second
 <<<<<<< HEAD
+<<<<<<< HEAD
         robot.leftDrive.setPower(FORWARD_SPEED);
         robot.rightDrive.setPower(FORWARD_SPEED);
 =======
+=======
+>>>>>>> 13eabfbe6156209a0a74207cc5c046477b271cfe
         robot.leftbackDrive.setPower(FORWARD_SPEED);
         robot.leftfrontDrive.setPower(FORWARD_SPEED);
         robot.rightbackDrive.setPower(FORWARD_SPEED);
         robot.rightfrontDrive.setPower(FORWARD_SPEED);
+<<<<<<< HEAD
 >>>>>>> 3a86cfd332b8bc2e155d57b75c62a41245f3b264
+=======
+>>>>>>> 13eabfbe6156209a0a74207cc5c046477b271cfe
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1.0)) {
             telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
@@ -134,16 +140,23 @@ public class VAPushbotAutonomousDepot extends LinearOpMode {
 
         // Step 4:  Stop and close the claw.
 <<<<<<< HEAD
+<<<<<<< HEAD
         robot.leftDrive.setPower(0);
         robot.rightDrive.setPower(0);
 =======
+=======
+>>>>>>> 13eabfbe6156209a0a74207cc5c046477b271cfe
         robot.leftbackDrive.setPower(0);
         robot.leftfrontDrive.setPower(0);
         robot.rightbackDrive.setPower(0);
         robot.rightfrontDrive.setPower(0);
+<<<<<<< HEAD
 >>>>>>> 3a86cfd332b8bc2e155d57b75c62a41245f3b264
         robot.leftClaw.setPosition(1.0);
         robot.rightClaw.setPosition(0.0);
+=======
+        robot.MarkerTipper.setPosition(1.0);
+>>>>>>> 13eabfbe6156209a0a74207cc5c046477b271cfe
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
