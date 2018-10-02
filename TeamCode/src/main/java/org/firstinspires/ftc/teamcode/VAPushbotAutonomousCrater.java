@@ -59,10 +59,10 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 @Autonomous(name="Pushbot: Auto Drive By Time", group="Pushbot")
 @Disabled
-public class PushbotAutoDriveByTime_Linear extends LinearOpMode {
+public class VAPushbotAutonomousCrater extends LinearOpMode {
 
     /* Declare OpMode members. */
-    HardwarePushbot robot   = new HardwarePushbot();   // Use a Pushbot's hardware
+    VAPushbot robot   = new VAPushbot();   // Use a Pushbot's hardware
     private ElapsedTime     runtime = new ElapsedTime();
 
 
@@ -86,10 +86,21 @@ public class PushbotAutoDriveByTime_Linear extends LinearOpMode {
         waitForStart();
 
         // Step through each leg of the path, ensuring that the Auto mode has not been stopped along the way
-
+        robot.leftbackDrive.setPower(TURN_SPEED);
+        robot.rightbackDrive.setPower(-TURN_SPEED);
+        robot.leftfrontDrive.setPower(TURN_SPEED);
+        robot.rightfrontDrive.setPower(-TURN_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 1)) {
+            telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
         // Step 1:  Drive forward for 3 seconds
-        robot.leftDrive.setPower(FORWARD_SPEED);
-        robot.rightDrive.setPower(FORWARD_SPEED);
+
+        robot.leftbackDrive.setPower(FORWARD_SPEED);
+        robot.rightbackDrive.setPower(FORWARD_SPEED);
+        robot.leftfrontDrive.setPower(FORWARD_SPEED);
+        robot.rightfrontDrive.setPower(FORWARD_SPEED);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 3.0)) {
             telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
@@ -97,8 +108,10 @@ public class PushbotAutoDriveByTime_Linear extends LinearOpMode {
         }
 
         // Step 2:  Spin right for 1.3 seconds
-        robot.leftDrive.setPower(TURN_SPEED);
-        robot.rightDrive.setPower(TURN_SPEED);
+        robot.leftbackDrive.setPower(TURN_SPEED);
+        robot.rightbackDrive.setPower(-TURN_SPEED);
+        robot.leftfrontDrive.setPower(TURN_SPEED);
+        robot.rightfrontDrive.setPower(-TURN_SPEED);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1.3)) {
             telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
