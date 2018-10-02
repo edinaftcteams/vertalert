@@ -59,7 +59,7 @@ public class VAPushbot
     public DcMotor  rightfrontDrive = null;
     public Servo    FrontSpinner   = null;
     public Servo    BackSpinner    = null;
-    public Servo    MarkerTipper
+    public Servo    MarkerTipper = null;
 
     public static final double MID_SERVO       =  0.5 ;
     public static final double ARM_UP_POWER    =  0.45 ;
@@ -105,7 +105,7 @@ public class VAPushbot
         // Define and initialize ALL installed servos.
         FrontSpinner  = hwMap.get(Servo.class, "Front_Spinner");
         BackSpinner = hwMap.get(Servo.class, "Back_Spinner");
-        MarkerTipper = hwMap.get(Servo.class, "Marker_Tipper" )
+        MarkerTipper = hwMap.get(Servo.class, "Marker_Tipper" );
         FrontSpinner.setPosition(MID_SERVO);
         BackSpinner.setPosition(MID_SERVO);
         MarkerTipper.setPosition(MID_SERVO);
