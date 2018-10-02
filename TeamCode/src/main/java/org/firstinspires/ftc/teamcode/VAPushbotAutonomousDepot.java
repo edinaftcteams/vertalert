@@ -132,8 +132,7 @@ public class VAPushbotAutonomousDepot extends LinearOpMode {
         robot.leftfrontDrive.setPower(0);
         robot.rightbackDrive.setPower(0);
         robot.rightfrontDrive.setPower(0);
-        robot.leftClaw.setPosition(1.0);
-        robot.rightClaw.setPosition(0.0);
+        robot.MarkerTipper.setPosition(1.0);
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
