@@ -134,7 +134,7 @@ public class VAPushbotAutonomousCrater extends LinearOpMode {
         robot.leftfrontDrive.setPower(0);
         robot.rightbackDrive.setPower(0);
         robot.rightfrontDrive.setPower(0);
-        robot.MarkerTipper.setPosition(1.0);
+        robot.MarkerTipper.setPosition(0.5);
 
 
         telemetry.addData("Path", "Complete");
