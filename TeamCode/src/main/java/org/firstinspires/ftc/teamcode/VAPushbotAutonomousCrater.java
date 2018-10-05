@@ -84,10 +84,10 @@ public class VAPushbotAutonomousCrater extends LinearOpMode {
         waitForStart();
 
         // Step through each leg of the path, ensuring that the Auto mode has not been stopped along the way
-        robot.leftbackDrive.setPower(TURN_SPEED);
-        robot.rightbackDrive.setPower(-TURN_SPEED);
-        robot.leftfrontDrive.setPower(TURN_SPEED);
-        robot.rightfrontDrive.setPower(-TURN_SPEED);
+        robot.leftbackdrive.setPower(TURN_SPEED);
+        robot.rightbackdrive.setPower(-TURN_SPEED);
+        robot.leftfrontdrive.setPower(TURN_SPEED);
+        robot.rightfrontdrive.setPower(-TURN_SPEED);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1)) {
             telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
@@ -95,10 +95,10 @@ public class VAPushbotAutonomousCrater extends LinearOpMode {
         }
         // Step 1:  Drive forward for 3 seconds
 
-        robot.leftbackDrive.setPower(FORWARD_SPEED);
-        robot.rightbackDrive.setPower(FORWARD_SPEED);
-        robot.leftfrontDrive.setPower(FORWARD_SPEED);
-        robot.rightfrontDrive.setPower(FORWARD_SPEED);
+        robot.leftbackdrive.setPower(FORWARD_SPEED);
+        robot.rightbackdrive.setPower(FORWARD_SPEED);
+        robot.leftfrontdrive.setPower(FORWARD_SPEED);
+        robot.rightfrontdrive.setPower(FORWARD_SPEED);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 3.0)) {
             telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
@@ -106,10 +106,10 @@ public class VAPushbotAutonomousCrater extends LinearOpMode {
         }
 
         // Step 2:  Spin right for 1.3 seconds
-        robot.leftbackDrive.setPower(TURN_SPEED);
-        robot.rightbackDrive.setPower(-TURN_SPEED);
-        robot.leftfrontDrive.setPower(TURN_SPEED);
-        robot.rightfrontDrive.setPower(-TURN_SPEED);
+        robot.leftbackdrive.setPower(TURN_SPEED);
+        robot.rightbackdrive.setPower(-TURN_SPEED);
+        robot.leftfrontdrive.setPower(TURN_SPEED);
+        robot.rightfrontdrive.setPower(-TURN_SPEED);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1.3)) {
             telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
@@ -118,10 +118,10 @@ public class VAPushbotAutonomousCrater extends LinearOpMode {
 
         // Step 3:  Drive Backwards for 1 Second
 
-        robot.leftbackDrive.setPower(FORWARD_SPEED);
-        robot.leftfrontDrive.setPower(FORWARD_SPEED);
-        robot.rightbackDrive.setPower(FORWARD_SPEED);
-        robot.rightfrontDrive.setPower(FORWARD_SPEED);
+        robot.leftbackdrive.setPower(FORWARD_SPEED);
+        robot.leftfrontdrive.setPower(FORWARD_SPEED);
+        robot.rightbackdrive.setPower(FORWARD_SPEED);
+        robot.rightfrontdrive.setPower(FORWARD_SPEED);
 
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1.0)) {
@@ -130,10 +130,10 @@ public class VAPushbotAutonomousCrater extends LinearOpMode {
         }
 
         // Step 4:  Stop and close the claw.
-        robot.leftbackDrive.setPower(0);
-        robot.leftfrontDrive.setPower(0);
-        robot.rightbackDrive.setPower(0);
-        robot.rightfrontDrive.setPower(0);
+        robot.leftbackdrive.setPower(0);
+        robot.leftfrontdrive.setPower(0);
+        robot.rightbackdrive.setPower(0);
+        robot.rightfrontdrive.setPower(0);
         robot.MarkerTipper.setPosition(0.5);
 
 

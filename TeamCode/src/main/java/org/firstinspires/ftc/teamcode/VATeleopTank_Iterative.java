@@ -52,7 +52,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  */
 
 @TeleOp(name="Pushbot: Teleop Tank", group="Pushbot")
-@Disabled
+//@Disabled
 public class VATeleopTank_Iterative extends OpMode{
 
     /* Declare OpMode members. */
@@ -101,10 +101,10 @@ public class VATeleopTank_Iterative extends OpMode{
         left = -gamepad1.left_stick_y;
         right = -gamepad1.right_stick_y;
 
-        robot.leftbackDrive.setPower(left);
-        robot.rightbackDrive.setPower(right);
-        robot.leftfrontDrive.setPower(left);
-        robot.rightfrontDrive.setPower(right);
+        robot.leftbackdrive.setPower(left);
+        robot.rightbackdrive.setPower(right);
+        robot.leftfrontdrive.setPower(left);
+        robot.rightfrontdrive.setPower(right);
 
         // Use gamepad left & right Bumpers to open and close the claw
         if (gamepad1.right_bumper)
