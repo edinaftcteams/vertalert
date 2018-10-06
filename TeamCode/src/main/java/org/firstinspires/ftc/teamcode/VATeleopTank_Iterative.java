@@ -98,16 +98,13 @@ public class VATeleopTank_Iterative extends OpMode{
         double right;
 
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
-        forward = -gamepad1.left_stick_y;
-        back = -gamepad1.right_stick_y;
+        left = -gamepad1.left_stick_y;
+        right = -gamepad1.right_stick_y;
 
         robot.leftbackdrive.setPower(left);
         robot.rightbackdrive.setPower(right);
         robot.leftfrontdrive.setPower(left);
         robot.rightfrontdrive.setPower(right);
-
-        rotate1 = -gamepad1.left_stick_y;
-        rotate2 = -gamepad1. right_stick_y;
 
         // Use gamepad left & right Bumpers to open and close the claw
         if (gamepad1.right_bumper)
