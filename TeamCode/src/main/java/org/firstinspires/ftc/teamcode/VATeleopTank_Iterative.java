@@ -94,17 +94,26 @@ public class VATeleopTank_Iterative extends OpMode{
      */
     @Override
     public void loop() {
-        double left;
-        double right;
+        double drive;
+        double rotate1;
+        double rotate2;
 
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
-        left = -gamepad1.left_stick_y;
-        right = -gamepad1.right_stick_y;
+        drive = -gamepad1.left_stick_y;
 
-        robot.leftbackdrive.setPower(left);
-        robot.rightbackdrive.setPower(right);
-        robot.leftfrontdrive.setPower(left);
-        robot.rightfrontdrive.setPower(right);
+
+        robot.leftbackdrive.setPower(drive);
+        robot.rightbackdrive.setPower(drive);
+        robot.leftfrontdrive.setPower(drive);
+        robot.rightfrontdrive.setPower(drive);
+
+        rotate1 = -gamepad1.left_stick_x;
+        rotate2 = gamepad1.left_stick_x;
+
+        robot.leftbackdrive.setPower(rotate1);
+        robot.rightbackdrive.setPower(rotate2);
+        robot.leftfrontdrive.setPower(rotate1);
+        robot.rightfrontdrive.setPower(rotate2);
 
         // Use gamepad left & right Bumpers to open and close the claw
         if (gamepad1.right_bumper)
@@ -118,23 +127,22 @@ public class VATeleopTank_Iterative extends OpMode{
         robot.BackSpinner.setPosition(robot.MID_SERVO - clawOffset);
 
         // Use gamepad buttons to move the arm up (Y) and down (A)
-            if (gamepad1.y) {
-                robot.FrontSpinner.setPosition(robot.ARM_UP_POWER);
-                robot.BackSpinner.setPosition(robot.ARM_UP_POWER);
-            }
-            else if (gamepad1.a) {
-                robot.FrontSpinner.setPosition(robot.ARM_DOWN_POWER);
-                robot.BackSpinner.setPosition(robot.ARM_DOWN_POWER);
-            }
-            else {
-                robot.FrontSpinner.setPosition(0.0);
-                robot.BackSpinner.setPosition(0.0);
-            }
+        if (gamepad1.y) {
+            robot.FrontSpinner.setPosition(robot.ARM_UP_POWER);
+            robot.BackSpinner.setPosition(robot.ARM_UP_POWER);
+        } else if (gamepad1.a) {
+            robot.FrontSpinner.setPosition(robot.ARM_DOWN_POWER);
+            robot.BackSpinner.setPosition(robot.ARM_DOWN_POWER);
+        } else {
+            robot.FrontSpinner.setPosition(0.0);
+            robot.BackSpinner.setPosition(0.0);
+        }
 
         // Send telemetry message to signify robot running;
-        telemetry.addData("claw",  "Offset = %.2f", clawOffset);
-        telemetry.addData("left",  "%.2f", left);
-        telemetry.addData("right", "%.2f", right);
+        telemetry.addData("claw", "Offset = %.2f", clawOffset);
+        telemetry.addData("drive", "%.2f", drive);
+        telemetry.addData("rotate1", "%.2f", rotate1);
+        telemetry.addData("rotate2", "%.2f", rotate2);
     }
 
     /*
