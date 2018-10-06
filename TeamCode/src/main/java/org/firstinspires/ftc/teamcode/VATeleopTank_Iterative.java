@@ -138,17 +138,29 @@ public class VATeleopTank_Iterative extends OpMode{
             robot.BackSpinner.setPosition(0.0);
         }
 
-        // Send telemetry message to signify robot running;
-        telemetry.addData("claw", "Offset = %.2f", clawOffset);
-        telemetry.addData("drive", "%.2f", drive);
-        telemetry.addData("rotate1", "%.2f", rotate1);
-        telemetry.addData("rotate2", "%.2f", rotate2);
-    }
+        if (gamepad1.dpad_up) {
+            robot.armstringspooler.setPower(robot.ARM_UP_POWER);
+        } else {
+            robot.armstringspooler.setPower(0);
+        }
 
-    /*
-     * Code to run ONCE after the driver hits STOP
-     */
-    @Override
-    public void stop() {
+        if (gamepad1.dpad_down) {
+            robot.armstringspooler.setPower(robot.ARM_DOWN_POWER);
+        } else {
+            robot.armstringspooler.setPower(0);
+        }
+
+            // Send telemetry message to signify robot running;
+            telemetry.addData("claw", "Offset = %.2f", clawOffset);
+            telemetry.addData("drive", "%.2f", drive);
+            telemetry.addData("rotate1", "%.2f", rotate1);
+            telemetry.addData("rotate2", "%.2f", rotate2);
+        }
+
+        /*
+         * Code to run ONCE after the driver hits STOP
+         */
+        @Override
+        public void stop () {
+        }
     }
-}

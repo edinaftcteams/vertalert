@@ -58,6 +58,7 @@ public class VAPushbot
     public DcMotor  rightbackdrive  = null;
     public DcMotor  leftfrontdrive  = null;
     public DcMotor  rightfrontdrive = null;
+    public DcMotor  armstringspooler= null;
     public Servo    FrontSpinner   = null;
     public Servo    BackSpinner    = null;
     public Servo    MarkerTipper = null;
@@ -85,16 +86,19 @@ public class VAPushbot
         rightbackdrive = hwMap.get(DcMotor.class, "rightback_drive");
         leftfrontdrive = hwMap.get(DcMotor.class, "leftfront_drive");
         rightfrontdrive= hwMap.get(DcMotor.class, "rightfront_drive");
+        armstringspooler= hwMap.get(DcMotor.class, "armstring_spooler");
         leftbackdrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         rightbackdrive.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
         leftfrontdrive.setDirection(DcMotor.Direction.FORWARD);
         rightfrontdrive.setDirection(DcMotor.Direction.FORWARD);
+        armstringspooler.setDirection(DcMotor.Direction.FORWARD);
 
         // Set all motors to zero power
         leftbackdrive.setPower(0);
         rightbackdrive.setPower(0);
         leftfrontdrive.setPower(0);
         rightfrontdrive.setPower(0);
+        armstringspooler.setPower(0);
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
