@@ -59,7 +59,7 @@ public class VATeleopTank_Iterative extends OpMode{
     VAPushbot robot       = new VAPushbot(); // use the class created to define a Pushbot's hardware
                                                          // could also use HardwarePushbotMatrix class.
     double          clawOffset  = 0.0 ;                  // Servo mid position
-    final double    CLAW_SPEED  = 0.02 ;                 // sets rate to move servo
+    final double    CLAW_SPEED  = 0.02 ;               // sets rate to move servo
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -72,7 +72,7 @@ public class VATeleopTank_Iterative extends OpMode{
         robot.init(hardwareMap);
 
         // Send telemetry message to signify robot waiting;
-        telemetry.addData("Say", "Hello Driver");    //
+        telemetry.addData("Say", "Catch Tha Dub Bois");    //
     }
 
     /*

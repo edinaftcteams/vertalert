@@ -112,7 +112,7 @@ public class VAPushbot
         FrontSpinner  = hwMap.get(Servo.class, "Front_Spinner");
         BackSpinner = hwMap.get(Servo.class, "Back_Spinner");
         MarkerTipper = hwMap.get(Servo.class, "Marker_Tipper" );
-        ArmClaw  = hwMap.get(Servo.class, "Arm_Claw")
+        ArmClaw  = hwMap.get(Servo.class, "Arm_Claw");
         FrontSpinner.setPosition(MID_SERVO);
         BackSpinner.setPosition(MID_SERVO);
         MarkerTipper.setPosition(MID_SERVO);

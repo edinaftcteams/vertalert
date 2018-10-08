@@ -56,7 +56,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  */
 
 @Autonomous(name="Pushbot: Auto Drive By Time", group="Pushbot")
-@Disabled
+
 public class VAPushbotAutonomousCrater extends LinearOpMode {
 
     /* Declare OpMode members. */
@@ -83,6 +83,16 @@ public class VAPushbotAutonomousCrater extends LinearOpMode {
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
 
+        robot.armstringspooler.setPower(-FORWARD_SPEED);
+        robot.ArmClaw.setPosition(0);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 1)) {
+            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed",runtime.seconds());
+            telemetry.update();
+        }
+
+        robot.ArmClaw.setPosition(0);
+
         // Step through each leg of the path, ensuring that the Auto mode has not been stopped along the way
         robot.leftbackdrive.setPower(TURN_SPEED);
         robot.rightbackdrive.setPower(-TURN_SPEED);
@@ -90,7 +100,7 @@ public class VAPushbotAutonomousCrater extends LinearOpMode {
         robot.rightfrontdrive.setPower(-TURN_SPEED);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1)) {
-            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
         }
         // Step 1:  Drive forward for 3 seconds
@@ -101,7 +111,7 @@ public class VAPushbotAutonomousCrater extends LinearOpMode {
         robot.rightfrontdrive.setPower(FORWARD_SPEED);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 3.0)) {
-            telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
+            telemetry.addData("Path", "Leg 4: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
         }
 
@@ -112,7 +122,7 @@ public class VAPushbotAutonomousCrater extends LinearOpMode {
         robot.rightfrontdrive.setPower(-TURN_SPEED);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1.3)) {
-            telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
+            telemetry.addData("Path", "Leg 5: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
         }
 
@@ -125,7 +135,7 @@ public class VAPushbotAutonomousCrater extends LinearOpMode {
 
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1.0)) {
-            telemetry.addData("Path", "Leg 4: %2.5f S Elapsed", runtime.seconds());
+            telemetry.addData("Path", "Leg 6: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
         }
 
