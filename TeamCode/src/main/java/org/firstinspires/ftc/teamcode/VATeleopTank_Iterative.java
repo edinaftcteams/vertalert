@@ -104,8 +104,8 @@ public class VATeleopTank_Iterative extends OpMode{
 
         robot.leftbackdrive.setPower(drive);
         robot.rightbackdrive.setPower(drive);
-        robot.leftfrontdrive.setPower(drive);
         robot.rightfrontdrive.setPower(drive);
+        robot.leftfrontdrive.setPower(drive);
 
         rotate1 = -gamepad1.left_stick_x;
         rotate2 = gamepad1.left_stick_x;
@@ -141,13 +141,13 @@ public class VATeleopTank_Iterative extends OpMode{
         if (gamepad1.dpad_up) {
             robot.armstringspooler.setPower(robot.ARM_UP_POWER);
         } else {
-            robot.armstringspooler.setPower(0);
+            robot.armstringspooler.setPower(0.5);
         }
 
         if (gamepad1.dpad_down) {
             robot.armstringspooler.setPower(robot.ARM_DOWN_POWER);
         } else {
-            robot.armstringspooler.setPower(0);
+            robot.armstringspooler.setPower(0.5);
         }
 
             // Send telemetry message to signify robot running;
