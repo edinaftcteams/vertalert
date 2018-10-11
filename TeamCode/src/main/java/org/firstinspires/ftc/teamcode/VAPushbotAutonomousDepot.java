@@ -64,8 +64,8 @@ public class VAPushbotAutonomousDepot extends LinearOpMode {
     private ElapsedTime     runtime = new ElapsedTime();
 
 
-    static final double     FORWARD_SPEED = 0.6;
-    static final double     TURN_SPEED    = 0.5;
+    static final double     FORWARD_SPEED = 1.0;
+    static final double     TURN_SPEED    = 0.9;
 
     @Override
     public void runOpMode() {

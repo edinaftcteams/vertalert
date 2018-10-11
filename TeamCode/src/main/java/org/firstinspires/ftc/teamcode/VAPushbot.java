@@ -62,7 +62,7 @@ public class VAPushbot
     public Servo    FrontSpinner   = null;
     public Servo    BackSpinner    = null;
     public Servo    MarkerTipper = null;
-    public Servo    ArmClaw  = null;
+    public Servo    ArmClaw = null;
 
     public static final double MID_SERVO       =  0.5 ;
     public static final double ARM_UP_POWER    =  0.45 ;
