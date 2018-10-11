@@ -77,7 +77,7 @@ public class VAPushbotAutonomousDepot extends LinearOpMode {
         robot.init(hardwareMap);
 
         // Send telemetry message to signify robot waiting;
-        telemetry.addData("Status", "Beepin and Boopin");    //
+        telemetry.addData("Status", "YeahBoiiiiiii");    //
         telemetry.update();
 
         // Wait for the game to start (driver presses PLAY)
