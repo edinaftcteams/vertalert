@@ -141,13 +141,13 @@ public class VATeleopTank_Iterative extends OpMode{
         if (gamepad1.dpad_up) {
             robot.armstringspooler.setPower(robot.ARM_UP_POWER);
         } else {
-            robot.armstringspooler.setPower(0.5);
+            robot.armstringspooler.setPower(0.0);
         }
 
         if (gamepad1.dpad_down) {
             robot.armstringspooler.setPower(robot.ARM_DOWN_POWER);
         } else {
-            robot.armstringspooler.setPower(0.5);
+            robot.armstringspooler.setPower(0.0);
         }
 
             // Send telemetry message to signify robot running;
