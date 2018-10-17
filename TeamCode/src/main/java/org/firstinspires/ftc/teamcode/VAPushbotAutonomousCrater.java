@@ -59,8 +59,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 public class VAPushbotAutonomousCrater extends LinearOpMode {
 
-    /* Declare OpMode members. */
-    VAPushbot robot   = new VAPushbot();   // Use a Pushbot's hardware
+
+    VAPushbot robot   = new VAPushbot();
     private ElapsedTime     runtime = new ElapsedTime();
 
 
@@ -70,17 +70,11 @@ public class VAPushbotAutonomousCrater extends LinearOpMode {
     @Override
     public void runOpMode() {
 
-        /*
-         * Initialize the drive system variables.
-         * The init() method of the hardware class does all the work here
-         */
         robot.init(hardwareMap);
 
-        // Send telemetry message to signify robot waiting;
         telemetry.addData("Status", "Beep Boop");    //
         telemetry.update();
 
-        // Wait for the game to start (driver presses PLAY)
         waitForStart();
 
         robot.armstringspooler.setPower(-FORWARD_SPEED);
@@ -93,7 +87,6 @@ public class VAPushbotAutonomousCrater extends LinearOpMode {
 
         robot.ArmClaw.setPosition(0);
 
-        // Step through each leg of the path, ensuring that the Auto mode has not been stopped along the way
         robot.leftbackdrive.setPower(TURN_SPEED);
         robot.rightbackdrive.setPower(-TURN_SPEED);
         robot.leftfrontdrive.setPower(TURN_SPEED);
@@ -103,7 +96,6 @@ public class VAPushbotAutonomousCrater extends LinearOpMode {
             telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
         }
-        // Step 1:  Drive forward for 3 seconds
 
         robot.leftbackdrive.setPower(FORWARD_SPEED);
         robot.rightbackdrive.setPower(FORWARD_SPEED);
@@ -115,7 +107,6 @@ public class VAPushbotAutonomousCrater extends LinearOpMode {
             telemetry.update();
         }
 
-        // Step 2:  Spin right for 1.3 seconds
         robot.leftbackdrive.setPower(TURN_SPEED);
         robot.rightbackdrive.setPower(-TURN_SPEED);
         robot.leftfrontdrive.setPower(TURN_SPEED);
@@ -125,8 +116,6 @@ public class VAPushbotAutonomousCrater extends LinearOpMode {
             telemetry.addData("Path", "Leg 5: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
         }
-
-        // Step 3:  Drive Backwards for 1 Second
 
         robot.leftbackdrive.setPower(FORWARD_SPEED);
         robot.leftfrontdrive.setPower(FORWARD_SPEED);
@@ -138,8 +127,7 @@ public class VAPushbotAutonomousCrater extends LinearOpMode {
             telemetry.addData("Path", "Leg 6: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
         }
-
-        // Step 4:  Stop and close the claw.
+        
         robot.leftbackdrive.setPower(0);
         robot.leftfrontdrive.setPower(0);
         robot.rightbackdrive.setPower(0);

@@ -55,50 +55,33 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 public class VATeleopTank_Iterative extends OpMode{
 
-    /* Declare OpMode members. */
-    VAPushbot robot       = new VAPushbot(); // use the class created to define a Pushbot's hardware
-                                                         // could also use HardwarePushbotMatrix class.
-    double          clawOffset  = 0.0 ;                  // Servo mid position
-    final double    CLAW_SPEED  = 0.02 ;               // sets rate to move servo
+    VAPushbot robot       = new VAPushbot();
 
-    /*
-     * Code to run ONCE when the driver hits INIT
-     */
+    double          clawOffset  = 0.0 ;
+    final double    CLAW_SPEED  = 0.02 ;
+
     @Override
     public void init() {
-        /* Initialize the hardware variables.
-         * The init() method of the hardware class does all the work here
-         */
+
         robot.init(hardwareMap);
 
-        // Send telemetry message to signify robot waiting;
         telemetry.addData("Say", "Catch Tha Dub Bois");    //
     }
 
-    /*
-     * Code to run REPEATEDLY after the driver hits INIT, but before they hit PLAY
-     */
     @Override
     public void init_loop() {
     }
 
-    /*
-     * Code to run ONCE when the driver hits PLAY
-     */
     @Override
     public void start() {
     }
 
-    /*
-     * Code to run REPEATEDLY after the driver hits PLAY but before they hit STOP
-     */
     @Override
     public void loop() {
         double drive;
         double rotate1;
         double rotate2;
 
-        // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
         drive = -gamepad1.left_stick_y;
 
 
@@ -115,18 +98,15 @@ public class VATeleopTank_Iterative extends OpMode{
         robot.leftfrontdrive.setPower(rotate1);
         robot.rightfrontdrive.setPower(rotate2);
 
-        // Use gamepad left & right Bumpers to open and close the claw
         if (gamepad1.right_bumper)
             clawOffset += CLAW_SPEED;
         else if (gamepad1.left_bumper)
             clawOffset -= CLAW_SPEED;
 
-        // Move both servos to new position.  Assume servos are mirror image of each other.
         clawOffset = Range.clip(clawOffset, -0.5, 0.5);
         robot.FrontSpinner.setPosition(robot.MID_SERVO + clawOffset);
         robot.BackSpinner.setPosition(robot.MID_SERVO - clawOffset);
 
-        // Use gamepad buttons to move the arm up (Y) and down (A)
         if (gamepad1.y) {
             robot.FrontSpinner.setPosition(robot.ARM_UP_POWER);
             robot.BackSpinner.setPosition(robot.ARM_UP_POWER);
@@ -150,16 +130,14 @@ public class VATeleopTank_Iterative extends OpMode{
             robot.armstringspooler.setPower(0.0);
         }
 
-            // Send telemetry message to signify robot running;
             telemetry.addData("claw", "Offset = %.2f", clawOffset);
             telemetry.addData("drive", "%.2f", drive);
             telemetry.addData("rotate1", "%.2f", rotate1);
             telemetry.addData("rotate2", "%.2f", rotate2);
         }
 
-        /*
-         * Code to run ONCE after the driver hits STOP
-         */
+
+
         @Override
         public void stop () {
         }
