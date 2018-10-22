@@ -58,10 +58,10 @@ public class VAPushbot
     public DcMotor  leftfrontdrive  = null;
     public DcMotor  rightfrontdrive = null;
     public DcMotor  armstringspooler= null;
-    public Servo    FrontSpinner   = null;
-    public Servo    BackSpinner    = null;
-    public Servo    MarkerTipper = null;
-    public Servo    ArmClaw = null;
+    public DcMotor   FrontSweeper   = null;
+    public DcMotor   BackSweeper    = null;
+    public Servo MarkerTipper = null;
+    public Servo      ArmClaw = null;
 
     public static final double MID_SERVO       =  0.5 ;
     public static final double ARM_UP_POWER    =  0.45 ;
@@ -83,29 +83,36 @@ public class VAPushbot
         leftfrontdrive = hwMap.get(DcMotor.class, "leftfront_drive");
         rightfrontdrive= hwMap.get(DcMotor.class, "rightfront_drive");
         armstringspooler= hwMap.get(DcMotor.class, "armstring_spooler");
+        FrontSweeper= hwMap.get(DcMotor.class, "front_Sweeper");
+        BackSweeper= hwMap.get(DcMotor.class, "back_Sweeper");
+
         leftbackdrive.setDirection(DcMotor.Direction.FORWARD);
         rightbackdrive.setDirection(DcMotor.Direction.FORWARD);
         leftfrontdrive.setDirection(DcMotor.Direction.FORWARD);
         rightfrontdrive.setDirection(DcMotor.Direction.FORWARD);
         armstringspooler.setDirection(DcMotor.Direction.FORWARD);
+        FrontSweeper.setDirection(DcMotor.Direction.FORWARD);
+        BackSweeper.setDirection(DcMotor.Direction.FORWARD);
 
         leftbackdrive.setPower(0);
         rightbackdrive.setPower(0);
         leftfrontdrive.setPower(0);
         rightfrontdrive.setPower(0);
         armstringspooler.setPower(0);
+        FrontSweeper.setPower(0);
+        BackSweeper.setPower(0);
 
         leftbackdrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         rightbackdrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         leftfrontdrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         rightfrontdrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        armstringspooler.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        FrontSweeper.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        BackSweeper.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-        FrontSpinner  = hwMap.get(Servo.class, "Front_Spinner");
-        BackSpinner = hwMap.get(Servo.class, "Back_Spinner");
         MarkerTipper = hwMap.get(Servo.class, "Marker_Tipper" );
         ArmClaw  = hwMap.get(Servo.class, "Arm_Claw");
-        FrontSpinner.setPosition(MID_SERVO);
-        BackSpinner.setPosition(MID_SERVO);
+
         MarkerTipper.setPosition(MID_SERVO);
         ArmClaw.setPosition(MID_SERVO);
     }

@@ -57,9 +57,6 @@ public class VATeleopTank_Iterative extends OpMode{
 
     VAPushbot robot       = new VAPushbot();
 
-    double          clawOffset  = 0.0 ;
-    final double    CLAW_SPEED  = 0.02 ;
-
     @Override
     public void init() {
 
@@ -98,24 +95,16 @@ public class VATeleopTank_Iterative extends OpMode{
         robot.leftfrontdrive.setPower(rotate1);
         robot.rightfrontdrive.setPower(rotate2);
 
-        if (gamepad1.right_bumper)
-            clawOffset += CLAW_SPEED;
-        else if (gamepad1.left_bumper)
-            clawOffset -= CLAW_SPEED;
-
-        clawOffset = Range.clip(clawOffset, -0.5, 0.5);
-        robot.FrontSpinner.setPosition(robot.MID_SERVO + clawOffset);
-        robot.BackSpinner.setPosition(robot.MID_SERVO - clawOffset);
 
         if (gamepad1.y) {
-            robot.FrontSpinner.setPosition(robot.ARM_UP_POWER);
-            robot.BackSpinner.setPosition(robot.ARM_UP_POWER);
+            robot.FrontSweeper.setPower(robot.ARM_UP_POWER);
+            robot.BackSweeper.setPower(robot.ARM_UP_POWER);
         } else if (gamepad1.a) {
-            robot.FrontSpinner.setPosition(robot.ARM_DOWN_POWER);
-            robot.BackSpinner.setPosition(robot.ARM_DOWN_POWER);
+            robot.FrontSweeper.setPower(robot.ARM_DOWN_POWER);
+            robot.BackSweeper.setPower(robot.ARM_DOWN_POWER);
         } else {
-            robot.FrontSpinner.setPosition(0.0);
-            robot.BackSpinner.setPosition(0.0);
+            robot.FrontSweeper.setPower(0.0);
+            robot.BackSweeper.setPower(0.0);
         }
 
         if (gamepad1.dpad_up) {
@@ -130,7 +119,6 @@ public class VATeleopTank_Iterative extends OpMode{
             robot.armstringspooler.setPower(0.0);
         }
 
-            telemetry.addData("claw", "Offset = %.2f", clawOffset);
             telemetry.addData("drive", "%.2f", drive);
             telemetry.addData("rotate1", "%.2f", rotate1);
             telemetry.addData("rotate2", "%.2f", rotate2);

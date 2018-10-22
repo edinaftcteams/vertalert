@@ -127,7 +127,7 @@ public class VAPushbotAutonomousCrater extends LinearOpMode {
             telemetry.addData("Path", "Leg 6: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
         }
-        
+
         robot.leftbackdrive.setPower(0);
         robot.leftfrontdrive.setPower(0);
         robot.rightbackdrive.setPower(0);
