@@ -59,7 +59,6 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 public class VAPushbotAutonomousCrater extends LinearOpMode {
 
-
     VAPushbot robot   = new VAPushbot();
     private ElapsedTime     runtime = new ElapsedTime();
 
