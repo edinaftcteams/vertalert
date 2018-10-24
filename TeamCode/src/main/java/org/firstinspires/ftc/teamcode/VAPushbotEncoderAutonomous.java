@@ -172,18 +172,24 @@ public class VAPushbotEncoderAutonomous extends LinearOpMode {
                 // Display it for the driver.
                 telemetry.addData("Path1",  "Running to %7d :%7d", newLeftTarget,  newRightTarget);
                 telemetry.addData("Path2",  "Running at %7d :%7d",
-                                            robot.leftDrive.getCurrentPosition(),
-                                            robot.rightDrive.getCurrentPosition());
+                                            robot.leftfrontdrive.getCurrentPosition(),
+                                            robot.leftbackdrive.getCurrentPosition());
+                                            robot.rightbackdrive.getCurrentPosition();
+                                            robot.rightfrontdrive.getCurrentPosition();
                 telemetry.update();
             }
 
             // Stop all motion;
-            robot.leftDrive.setPower(0);
-            robot.rightDrive.setPower(0);
+            robot.leftfrontdrive.setPower(0);
+            robot.leftbackdrive.setPower(0);
+            robot.rightbackdrive.setPower(0);
+            robot.rightfrontdrive.setPower(0);
 
             // Turn off RUN_TO_POSITION
-            robot.leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            robot.rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.leftfrontdrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.rightbackdrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.leftbackdrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.rightfrontdrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
             //  sleep(250);   // optional pause after each move
         }
