@@ -35,8 +35,6 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
-
 /**
  * This file illustrates the concept of driving a path based on encoder counts.
  * It uses the common Pushbot hardware class to define the drive on the robot.
@@ -66,7 +64,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 @Autonomous(name="Pushbot: Auto Drive By Encoder", group="Pushbot")
 @Disabled
-public class VAPushbotEncoderAutonomous extends LinearOpMode {
+public class VAPushbotEncoderAutonomousCrater extends LinearOpMode {
 
     /* Declare OpMode members. */
     VAPushbot     robot   = new VAPushbot();   // Use a Pushbot's hardware
@@ -76,7 +74,7 @@ public class VAPushbotEncoderAutonomous extends LinearOpMode {
     static final double     DRIVE_GEAR_REDUCTION    = 1.0 ;     // This is < 1.0 if geared UP
     static final double     WHEEL_DIAMETER_INCHES   = 4.0 ;     // For figuring circumference
     static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
-                                                      (WHEEL_DIAMETER_INCHES * 3.1415);
+            (WHEEL_DIAMETER_INCHES * 3.1415);
     static final double     DRIVE_SPEED             = 0.6;
     static final double     TURN_SPEED              = 0.5;
 
@@ -105,10 +103,10 @@ public class VAPushbotEncoderAutonomous extends LinearOpMode {
 
         // Send telemetry message to indicate successful Encoder reset
         telemetry.addData("Path0",  "Starting at %7d :%7d",
-                          robot.leftbackdrive.getCurrentPosition(),
-                          robot.rightbackdrive.getCurrentPosition(),
-                          robot.leftfrontdrive.getCurrentPosition(),
-                          robot.rightfrontdrive.getCurrentPosition());
+                robot.leftbackdrive.getCurrentPosition(),
+                robot.rightbackdrive.getCurrentPosition(),
+                robot.leftfrontdrive.getCurrentPosition(),
+                robot.rightfrontdrive.getCurrentPosition());
         telemetry.update();
 
         // Wait for the game to start (driver presses PLAY)
@@ -146,18 +144,26 @@ public class VAPushbotEncoderAutonomous extends LinearOpMode {
 
             // Determine new target position, and pass to motor controller
             newLeftTarget = robot.leftbackdrive.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
-            newRightTarget = robot.rightDrive.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
-            robot.leftDrive.setTargetPosition(newLeftTarget);
-            robot.rightDrive.setTargetPosition(newRightTarget);
+            newRightTarget = robot.rightbackdrive.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
+            newLeftTarget = robot.leftfrontdrive.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
+            newRightTarget = robot.rightfrontdrive.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
+            robot.leftbackdrive.setTargetPosition(newLeftTarget);
+            robot.rightbackdrive.setTargetPosition(newRightTarget);
+            robot.leftfrontdrive.setTargetPosition(newLeftTarget);
+            robot.rightfrontdrive.setTargetPosition(newRightTarget);
 
             // Turn On RUN_TO_POSITION
-            robot.leftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            robot.rightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.leftbackdrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.rightbackdrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.leftfrontdrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.rightfrontdrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
             // reset the timeout time and start motion.
             runtime.reset();
-            robot.leftDrive.setPower(Math.abs(speed));
-            robot.rightDrive.setPower(Math.abs(speed));
+            robot.leftbackdrive.setPower(Math.abs(speed));
+            robot.rightbackdrive.setPower(Math.abs(speed));
+            robot.leftfrontdrive.setPower(Math.abs(speed));
+            robot.rightfrontdrive.setPower(Math.abs(speed));
 
             // keep looping while we are still active, and there is time left, and both motors are running.
             // Note: We use (isBusy() && isBusy()) in the loop test, which means that when EITHER motor hits
@@ -167,7 +173,7 @@ public class VAPushbotEncoderAutonomous extends LinearOpMode {
             // onto the next step, use (isBusy() || isBusy()) in the loop test.
             while (opModeIsActive() &&
                    (runtime.seconds() < timeoutS) &&
-                   (robot.leftDrive.isBusy() && robot.rightDrive.isBusy())) {
+                   (robot.leftbackdrive.isBusy() && robot.rightbackdrive.isBusy() && robot.leftfrontdrive.isBusy() && robot.rightfrontdrive.isBusy())) {
 
                 // Display it for the driver.
                 telemetry.addData("Path1",  "Running to %7d :%7d", newLeftTarget,  newRightTarget);
