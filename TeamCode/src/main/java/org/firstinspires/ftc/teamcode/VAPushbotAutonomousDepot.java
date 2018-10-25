@@ -76,7 +76,7 @@ public class VAPushbotAutonomousDepot extends LinearOpMode {
 
         waitForStart();
 
-        robot.armstringspooler.setPower(-FORWARD_SPEED);
+        robot.armlifter.setPower(-FORWARD_SPEED);
         robot.ArmClaw.setPosition(0);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1)) {

@@ -108,15 +108,15 @@ public class VATeleopTank_Iterative extends OpMode{
         }
 
         if (gamepad1.dpad_up) {
-            robot.armstringspooler.setPower(robot.ARM_UP_POWER);
+            robot.armlifter.setPower(robot.ARM_UP_POWER);
         } else {
-            robot.armstringspooler.setPower(0.0);
+            robot.armlifter.setPower(0.0);
         }
 
         if (gamepad1.dpad_down) {
-            robot.armstringspooler.setPower(robot.ARM_DOWN_POWER);
+            robot.armlifter.setPower(robot.ARM_DOWN_POWER);
         } else {
-            robot.armstringspooler.setPower(0.0);
+            robot.armlifter.setPower(0.0);
         }
 
             telemetry.addData("drive", "%.2f", drive);

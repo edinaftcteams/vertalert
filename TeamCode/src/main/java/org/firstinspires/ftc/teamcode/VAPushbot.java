@@ -57,7 +57,7 @@ public class VAPushbot
     public DcMotor  rightbackdrive  = null;
     public DcMotor  leftfrontdrive  = null;
     public DcMotor  rightfrontdrive = null;
-    public DcMotor  armstringspooler= null;
+    public DcMotor  armlifter= null;
     public DcMotor   FrontSweeper   = null;
     public DcMotor   BackSweeper    = null;
     public Servo MarkerTipper = null;
@@ -82,7 +82,7 @@ public class VAPushbot
         rightbackdrive = hwMap.get(DcMotor.class, "rightback_drive");
         leftfrontdrive = hwMap.get(DcMotor.class, "leftfront_drive");
         rightfrontdrive= hwMap.get(DcMotor.class, "rightfront_drive");
-        armstringspooler= hwMap.get(DcMotor.class, "armstring_spooler");
+        armlifter= hwMap.get(DcMotor.class, "armstring_spooler");
         FrontSweeper= hwMap.get(DcMotor.class, "front_Sweeper");
         BackSweeper= hwMap.get(DcMotor.class, "back_Sweeper");
 
@@ -90,7 +90,7 @@ public class VAPushbot
         rightbackdrive.setDirection(DcMotor.Direction.FORWARD);
         leftfrontdrive.setDirection(DcMotor.Direction.FORWARD);
         rightfrontdrive.setDirection(DcMotor.Direction.FORWARD);
-        armstringspooler.setDirection(DcMotor.Direction.FORWARD);
+        armlifter.setDirection(DcMotor.Direction.FORWARD);
         FrontSweeper.setDirection(DcMotor.Direction.FORWARD);
         BackSweeper.setDirection(DcMotor.Direction.FORWARD);
 
@@ -98,7 +98,7 @@ public class VAPushbot
         rightbackdrive.setPower(0);
         leftfrontdrive.setPower(0);
         rightfrontdrive.setPower(0);
-        armstringspooler.setPower(0);
+        armlifter.setPower(0);
         FrontSweeper.setPower(0);
         BackSweeper.setPower(0);
 
@@ -106,7 +106,7 @@ public class VAPushbot
         rightbackdrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         leftfrontdrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         rightfrontdrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        armstringspooler.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        armlifter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         FrontSweeper.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         BackSweeper.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
