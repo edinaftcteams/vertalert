@@ -116,10 +116,10 @@ public class VAPushbotEncoderAutonomousDepot extends LinearOpMode {
 
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
-        encoderDrive(TURN_SPEED,  -50,  50, 5.0);  // S1: Forward 47 Inches with 5 Sec timeout
-        encoderDrive(DRIVE_SPEED,  50,  50, 5.0);  // S2: Turn Right 12 Inches with 4 Sec timeout
-        encoderDrive(TURN_SPEED,  -50,  50, 5.0);  // S3: Reverse 24 Inches with 4 Sec timeout
-        encoderDrive(DRIVE_SPEED,  50,  50, 5.0);
+        encoderDrive(TURN_SPEED,  -50,    50,    5.0);  // S1: Forward 47 Inches with 5 Sec timeout
+        encoderDrive(DRIVE_SPEED,  58.75, 58.75, 5.0);  // S2: Turn Right 12 Inches with 4 Sec timeout
+        encoderDrive(TURN_SPEED,  -50,    50,    5.0);  // S3: Reverse 24 Inches with 4 Sec timeout
+        encoderDrive(DRIVE_SPEED,  58.75, 58.75, 5.0);
 
         robot.MarkerTipper.setPosition(1.0);            // S4: Stop and close the claw.
         sleep(1000);     // pause for servos to move

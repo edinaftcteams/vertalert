@@ -103,7 +103,7 @@ public class VAPushbot
         leftfrontdrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         rightfrontdrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         armlifter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        Sweeper.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        Sweeper.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         MarkerTipper = hwMap.get(Servo.class, "Marker_Tipper" );
         ArmClaw  = hwMap.get(Servo.class, "Arm_Claw");
