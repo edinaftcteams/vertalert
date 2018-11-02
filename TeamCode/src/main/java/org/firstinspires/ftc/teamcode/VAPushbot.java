@@ -85,9 +85,9 @@ public class VAPushbot
         Sweeper= hwMap.get(DcMotor.class, "Sweeper");
 
         leftbackdrive.setDirection(DcMotor.Direction.FORWARD);
-        rightbackdrive.setDirection(DcMotor.Direction.FORWARD);
+        rightbackdrive.setDirection(DcMotor.Direction.REVERSE);
         leftfrontdrive.setDirection(DcMotor.Direction.FORWARD);
-        rightfrontdrive.setDirection(DcMotor.Direction.FORWARD);
+        rightfrontdrive.setDirection(DcMotor.Direction.REVERSE);
         /*armlifter.setDirection(DcMotor.Direction.FORWARD);*/
         Sweeper.setDirection(DcMotor.Direction.FORWARD);
 
