@@ -77,39 +77,39 @@ public class VAPushbot
 
         hwMap = ahwMap;
 
-        leftbackdrive  = hwMap.get(DcMotor.class, "leftback_drive");
+        leftbackdrive = hwMap.get(DcMotor.class, "leftback_drive");
         rightbackdrive = hwMap.get(DcMotor.class, "rightback_drive");
         leftfrontdrive = hwMap.get(DcMotor.class, "leftfront_drive");
-        rightfrontdrive= hwMap.get(DcMotor.class, "rightfront_drive");
-        /*armlifter= hwMap.get(DcMotor.class, "arm_lifter");*/
-        Sweeper= hwMap.get(DcMotor.class, "Sweeper");
+        rightfrontdrive = hwMap.get(DcMotor.class, "rightfront_drive");
+        armlifter = hwMap.get(DcMotor.class, "arm_lifter");
+        Sweeper = hwMap.get(DcMotor.class, "Sweeper");
 
         leftbackdrive.setDirection(DcMotor.Direction.FORWARD);
         rightbackdrive.setDirection(DcMotor.Direction.REVERSE);
         leftfrontdrive.setDirection(DcMotor.Direction.FORWARD);
         rightfrontdrive.setDirection(DcMotor.Direction.REVERSE);
-        /*armlifter.setDirection(DcMotor.Direction.FORWARD);*/
+        armlifter.setDirection(DcMotor.Direction.FORWARD);
         Sweeper.setDirection(DcMotor.Direction.FORWARD);
 
         leftbackdrive.setPower(0);
         rightbackdrive.setPower(0);
         leftfrontdrive.setPower(0);
         rightfrontdrive.setPower(0);
-        /*armlifter.setPower(0);*/
+        armlifter.setPower(0);
         Sweeper.setPower(0);
 
         leftbackdrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         rightbackdrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         leftfrontdrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         rightfrontdrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        /*armlifter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);*/
+        armlifter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         Sweeper.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-        /*MarkerTipper = hwMap.get(Servo.class, "Marker_Tipper" );
+        MarkerTipper = hwMap.get(Servo.class, "Marker_Tipper" );
         ArmClaw  = hwMap.get(Servo.class, "Arm_Claw");
 
         MarkerTipper.setPosition(MID_SERVO);
-        ArmClaw.setPosition(MID_SERVO);*/
+        ArmClaw.setPosition(MID_SERVO);
     }
 
     private class Public {
