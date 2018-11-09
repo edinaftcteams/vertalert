@@ -56,7 +56,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  */
 
 @Autonomous(name="Pushbot: Time Depot Autonomous", group="Pushbot")
-
+@Disabled
 public class VAPushbotAutonomousDepot extends LinearOpMode {
 
     VAPushbot robot   = new VAPushbot();

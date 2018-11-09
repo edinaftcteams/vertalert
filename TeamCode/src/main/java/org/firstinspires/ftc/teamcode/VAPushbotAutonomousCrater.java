@@ -56,7 +56,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  */
 
 @Autonomous(name="Pushbot: Time Crater Autonomous", group="Pushbot")
-
+@Disabled
 public class VAPushbotAutonomousCrater extends LinearOpMode {
 
     VAPushbot robot   = new VAPushbot();
