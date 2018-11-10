@@ -112,6 +112,12 @@ public class VATeleopTank_Iterative extends OpMode{
             robot.armlifter.setPower(0.0);
         }
 
+        if (gamepad1.left_bumper) {
+            robot.MarkerTipper.setPosition(1.0);
+        } else if (gamepad1.right_bumper) {
+            robot.MarkerTipper.setPosition(0.0);
+        }
+
             telemetry.addData("drive", "%.2f", drive);
             telemetry.addData("rotate1", "%.2f", rotate1);
             telemetry.addData("rotate2", "%.2f", rotate2);

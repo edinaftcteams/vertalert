@@ -60,9 +60,7 @@ public class VAPushbot
     public DcMotor  armlifter       = null;
     public DcMotor  Sweeper         = null;
     public Servo MarkerTipper = null;
-    public Servo      ArmClaw = null;
 
-    public static final double MID_SERVO       =  0.5 ;
     public static final double ARM_UP_POWER    =  0.45 ;
     public static final double ARM_DOWN_POWER  = -0.45 ;
 
@@ -106,10 +104,8 @@ public class VAPushbot
         Sweeper.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         MarkerTipper = hwMap.get(Servo.class, "Marker_Tipper" );
-        ArmClaw  = hwMap.get(Servo.class, "Arm_Claw");
 
-        MarkerTipper.setPosition(MID_SERVO);
-        ArmClaw.setPosition(MID_SERVO);
+        MarkerTipper.setPosition(0.0);
     }
 
     private class Public {
