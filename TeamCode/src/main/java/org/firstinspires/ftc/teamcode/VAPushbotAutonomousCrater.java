@@ -77,14 +77,14 @@ public class VAPushbotAutonomousCrater extends LinearOpMode {
         waitForStart();
 
         robot.armlifter.setPower(-FORWARD_SPEED);
-        robot.ArmClaw.setPosition(0);
+
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1)) {
             telemetry.addData("Path", "Leg 1: %2.5f S Elapsed",runtime.seconds());
             telemetry.update();
         }
 
-        robot.ArmClaw.setPosition(0);
+
 
         robot.leftbackdrive.setPower(TURN_SPEED);
         robot.rightbackdrive.setPower(-TURN_SPEED);

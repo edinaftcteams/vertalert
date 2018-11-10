@@ -77,7 +77,7 @@ public class VAPushbotAutonomousDepot extends LinearOpMode {
         waitForStart();
 
         robot.armlifter.setPower(-FORWARD_SPEED);
-        robot.ArmClaw.setPosition(0);
+        
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1)) {
             telemetry.addData("Path", "Leg 1: %2.5f S Elapsed",runtime.seconds());
