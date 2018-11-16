@@ -61,8 +61,8 @@ public class VAPushbot
     public DcMotor  Sweeper         = null;
     public Servo MarkerTipper = null;
 
-    public static final double ARM_UP_POWER    =  0.45 ;
-    public static final double ARM_DOWN_POWER  = -0.45 ;
+    public static final double ARM_UP_POWER    = -0.45 ;
+    public static final double ARM_DOWN_POWER  =  0.45 ;
 
     HardwareMap hwMap           =  null;
     private ElapsedTime period  = new ElapsedTime();

@@ -87,8 +87,8 @@ public class VATeleopTank_Iterative extends OpMode{
         robot.rightfrontdrive.setPower(drive);
         robot.leftfrontdrive.setPower(drive);
 
-        rotate1 = -gamepad1.left_stick_x;
-        rotate2 = gamepad1.left_stick_x;
+        rotate1 = gamepad1.right_stick_x;
+        rotate2 = -gamepad1.right_stick_x;
 
         robot.leftbackdrive.setPower(rotate1);
         robot.rightbackdrive.setPower(rotate2);
