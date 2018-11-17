@@ -76,24 +76,25 @@ public class VATeleopTank_Iterative extends OpMode{
     @Override
     public void loop() {
         double drive;
-        double rotate1;
-        double rotate2;
+        double rotate;
 
         drive = -gamepad1.left_stick_y;
+        rotate = gamepad1.right_stick_x;
 
+//        double leftPower = drive - rotate*drive;
+//        double rightPower = drive + rotate*drive;
 
-        robot.leftbackdrive.setPower(drive);
-        robot.rightbackdrive.setPower(drive);
-        robot.rightfrontdrive.setPower(drive);
-        robot.leftfrontdrive.setPower(drive);
-
-        rotate1 = gamepad1.right_stick_x;
-        rotate2 = -gamepad1.right_stick_x;
-
-        robot.leftbackdrive.setPower(rotate1);
-        robot.rightbackdrive.setPower(rotate2);
-        robot.leftfrontdrive.setPower(rotate1);
-        robot.rightfrontdrive.setPower(rotate2);
+        if(rotate == 0) {
+            robot.leftbackdrive.setPower(drive);
+            robot.rightbackdrive.setPower(drive);
+            robot.rightfrontdrive.setPower(drive);
+            robot.leftfrontdrive.setPower(drive);
+        } else {
+            robot.leftbackdrive.setPower(rotate);
+            robot.rightbackdrive.setPower(-rotate);
+            robot.leftfrontdrive.setPower(rotate);
+            robot.rightfrontdrive.setPower(-rotate);
+        }
 
 
         if (gamepad1.y) {
@@ -119,8 +120,7 @@ public class VATeleopTank_Iterative extends OpMode{
         }
 
             telemetry.addData("drive", "%.2f", drive);
-            telemetry.addData("rotate1", "%.2f", rotate1);
-            telemetry.addData("rotate2", "%.2f", rotate2);
+            telemetry.addData("rotate", "%.2f", rotate);
 }
 
 
