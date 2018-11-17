@@ -118,7 +118,7 @@ public class VAPushbotEncoderAutonomousDepot extends LinearOpMode {
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
         robot.armlifter.setTargetPosition(COUNTS_TO_MOVE_ARM);
-        sleep(7000);
+        sleep(13000);
         encoderDrive(TURN_SPEED,   10.7, -10.7,  5.0);  // S1: Forward 47 Inches with 5 Sec timeout
         encoderDrive(DRIVE_SPEED,  58.75, 58.75, 5.0);  // S2: Turn Right 12 Inches with 4 Sec timeout
         encoderDrive(TURN_SPEED,  -21.4,  21.4,  5.0);  // S3: Reverse 24 Inches with 4 Sec timeout
