@@ -105,9 +105,9 @@ public class VATeleopTank_Iterative extends OpMode{
             robot.Sweeper.setPower(0.0);
         }
 
-        if (gamepad1.dpad_up) {
+        if (gamepad2.dpad_down) {
             robot.armlifter.setPower(VAPushbot.ARM_UP_POWER);
-        } else if (gamepad1.dpad_down) {
+        } else if (gamepad2.dpad_up) {
             robot.armlifter.setPower(VAPushbot.ARM_DOWN_POWER);
         } else {
             robot.armlifter.setPower(0.0);

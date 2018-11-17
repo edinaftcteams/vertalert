@@ -105,7 +105,7 @@ public class VAPushbot
 
         MarkerTipper = hwMap.get(Servo.class, "Marker_Tipper" );
 
-        MarkerTipper.setPosition(0.0);
+        MarkerTipper.setPosition(1.0);
     }
 
     private class Public {
