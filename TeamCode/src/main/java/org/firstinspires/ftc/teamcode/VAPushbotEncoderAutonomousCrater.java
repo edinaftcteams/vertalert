@@ -69,10 +69,10 @@ public class VAPushbotEncoderAutonomousCrater extends LinearOpMode {
     /* Declare OpMode members. */
     VAPushbot     robot   = new VAPushbot();   // Use a Pushbot's hardware
     private ElapsedTime     runtime = new ElapsedTime();
-    private final int COUNTS_TO_MOVE_ARM = 1440 ;
+    private final int COUNTS_TO_MOVE_ARM = 12200 ;
 
     static final double     COUNTS_PER_MOTOR_REV    = 1440 ;    // eg: TETRIX Motor Encoder
-    static final double     DRIVE_GEAR_REDUCTION    = 1.0 ;     // This is < 1.0 if geared UP
+    static final double     DRIVE_GEAR_REDUCTION    = 0.5 ;     // This is < 1.0 if geared UP
     static final double     WHEEL_DIAMETER_INCHES   = 4.0 ;     // For figuring circumference
     static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
             (WHEEL_DIAMETER_INCHES * 3.1415);
@@ -116,13 +116,13 @@ public class VAPushbotEncoderAutonomousCrater extends LinearOpMode {
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
         robot.armlifter.setTargetPosition(COUNTS_TO_MOVE_ARM);
-        encoderDrive(TURN_SPEED,   50,   -50,    5.0);  // S1: Forward 47 Inches with 5 Sec timeout
-        robot.armlifter.setTargetPosition(-COUNTS_TO_MOVE_ARM);
+        sleep(7000);
+        encoderDrive(TURN_SPEED,   75,   -75,    5.0);  // S1: Forward 47 Inches with 5 Sec timeout
         encoderDrive(DRIVE_SPEED,  58.75, 58.75, 5.0);  // S2: Turn Right 12 Inches with 4 Sec timeout
-        encoderDrive(TURN_SPEED,  -50,    50,    5.0);  // S3: Reverse 24 Inches with 4 Sec timeout
+        encoderDrive(TURN_SPEED,  -21.4,  21.4,  5.0);  // S3: Reverse 24 Inches with 4 Sec timeout
         encoderDrive(DRIVE_SPEED,  82.25, 82.25, 5.0);
 
-        robot.MarkerTipper.setPosition(1.0);            // S4: Stop and close the claw.
+        robot.MarkerTipper.setPosition(0.0);            // S4: Stop and close the claw.
         sleep(1000);     // pause for servos to move
 
         telemetry.addData("Path", "Complete");
