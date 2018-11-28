@@ -87,13 +87,13 @@ public class VATeleopTank_Iterative extends OpMode{
         if(rotate == 0) {
             robot.leftbackdrive.setPower(drive);
             robot.rightbackdrive.setPower(drive);
-            robot.rightfrontdrive.setPower(drive);
-            robot.leftfrontdrive.setPower(drive);
+            robot.rightfrontdrive.setPower(drive/2.0);
+            robot.leftfrontdrive.setPower(drive/2.0);
         } else {
             robot.leftbackdrive.setPower(rotate);
             robot.rightbackdrive.setPower(-rotate);
-            robot.leftfrontdrive.setPower(rotate);
-            robot.rightfrontdrive.setPower(-rotate);
+            robot.leftfrontdrive.setPower(rotate/2.0);
+            robot.rightfrontdrive.setPower(-rotate/2.0);
         }
 
 

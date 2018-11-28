@@ -84,8 +84,8 @@ public class VAPushbot
 
         leftbackdrive.setDirection(DcMotor.Direction.FORWARD);
         rightbackdrive.setDirection(DcMotor.Direction.REVERSE);
-        leftfrontdrive.setDirection(DcMotor.Direction.FORWARD);
-        rightfrontdrive.setDirection(DcMotor.Direction.REVERSE);
+        leftfrontdrive.setDirection(DcMotor.Direction.REVERSE);
+        rightfrontdrive.setDirection(DcMotor.Direction.FORWARD);
         armlifter.setDirection(DcMotor.Direction.FORWARD);
         Sweeper.setDirection(DcMotor.Direction.FORWARD);
 

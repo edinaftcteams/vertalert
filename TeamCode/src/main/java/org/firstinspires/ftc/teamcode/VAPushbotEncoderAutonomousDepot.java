@@ -71,7 +71,6 @@ public class VAPushbotEncoderAutonomousDepot extends LinearOpMode {
     /* Declare OpMode members. */
     VAPushbot     robot   = new VAPushbot();   // Use a Pushbot's hardware
     private ElapsedTime     runtime = new ElapsedTime();
-    private final int COUNTS_TO_MOVE_ARM = 12200 ;
 
     static final double     COUNTS_PER_MOTOR_REV    = 1440 ;    // eg: TETRIX Motor Encoder
     static final double     DRIVE_GEAR_REDUCTION    = 2.0 ;     // This is < 1.0 if geared UP
