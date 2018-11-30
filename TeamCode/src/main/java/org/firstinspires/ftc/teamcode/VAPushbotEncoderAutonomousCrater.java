@@ -162,8 +162,8 @@ public class VAPushbotEncoderAutonomousCrater extends LinearOpMode {
             runtime.reset();
             robot.leftbackdrive.setPower(Math.abs(speed));
             robot.rightbackdrive.setPower(Math.abs(speed));
-            robot.leftfrontdrive.setPower(Math.abs(speed/2.0));
-            robot.rightfrontdrive.setPower(Math.abs(speed/2.0));
+            robot.leftfrontdrive.setPower(Math.abs(speed));
+            robot.rightfrontdrive.setPower(Math.abs(speed));
 
             // keep looping while we are still active, and there is time left, and both motors are running.
             // Note: We use (isBusy() && isBusy()) in the loop test, which means that when EITHER motor hits
