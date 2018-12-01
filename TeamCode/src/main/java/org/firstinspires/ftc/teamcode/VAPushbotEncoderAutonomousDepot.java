@@ -121,6 +121,7 @@ public class VAPushbotEncoderAutonomousDepot extends LinearOpMode {
         encoderDrive(TURN_SPEED,  -15,    15,    5.0);  // S3: Reverse 24 Inches with 4 Sec timeout
         encoderDrive(DRIVE_SPEED,  70,    70,    5.0);
         encoderDrive(TURN_SPEED,  -22,    22,    5.0);
+        encoderDrive(DRIVE_SPEED,  125,   125,   5.0);
 
 
         robot.MarkerTipper.setPosition(0.0);            // S4: Stop and close the claw.
