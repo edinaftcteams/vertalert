@@ -126,10 +126,10 @@ public class VAPushbotEncoderAutonomousDepot extends LinearOpMode {
         robot.armlifter.setPower(0);
 
         encoderDrive(DRIVE_SPEED, -3.75, -3.75,  5.0);// S1: Forward 47 Inches with 5 Sec timeout
-        encoderDrive(TURN_SPEED,  -14,    14,    5.0);// S2: Turn Right 12 Inches with 4 Sec timeout
-        encoderDrive(DRIVE_SPEED, -5,    -5,     5.0);  // S3: Reverse 24 Inches with 4 Sec timeout
-        encoderDrive(TURN_SPEED,  -13,    13,    5.0);
-        encoderDrive(DRIVE_SPEED,  53.5,  53.5,  5.0);
+        encoderDrive(TURN_SPEED,  -10,    10,    5.0);
+        encoderDrive(DRIVE_SPEED, -4.5,  -4.5,   5.0);  // S3: Reverse 24 Inches with 4 Sec timeout
+        encoderDrive(TURN_SPEED,  -12,    12,    5.0);
+        encoderDrive(DRIVE_SPEED,  30,    30,    5.0);
         encoderDrive(TURN_SPEED,  -14,    14,    5.0);
         encoderDrive(DRIVE_SPEED,  25,    25,    5.0);
         robot.MarkerTipper.setPosition(0.0);            // S4: Stop and close the claw.
@@ -157,6 +157,12 @@ public class VAPushbotEncoderAutonomousDepot extends LinearOpMode {
         // Ensure that the opmode is still active
         if (opModeIsActive()) {
 
+            // Turn On RUN_TO_POSITION
+            robot.leftbackdrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.rightbackdrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.leftfrontdrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.rightfrontdrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
             // Determine new target position, and pass to motor controller
             newLeftTarget = robot.leftfrontdrive.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
             newRightTarget = robot.rightfrontdrive.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
@@ -165,11 +171,6 @@ public class VAPushbotEncoderAutonomousDepot extends LinearOpMode {
             robot.leftfrontdrive.setTargetPosition(newLeftTarget);
             robot.rightfrontdrive.setTargetPosition(newRightTarget);
 
-            // Turn On RUN_TO_POSITION
-            robot.leftbackdrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            robot.rightbackdrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            robot.leftfrontdrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            robot.rightfrontdrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
             // reset the timeout time and start motion.
             runtime.reset();
