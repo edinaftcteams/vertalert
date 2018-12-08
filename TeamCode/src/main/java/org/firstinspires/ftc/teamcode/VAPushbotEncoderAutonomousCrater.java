@@ -123,15 +123,15 @@ public class VAPushbotEncoderAutonomousCrater extends LinearOpMode {
         while(robot.armlifter.isBusy()){}
         robot.armlifter.setPower(0);
 
-        encoderDrive(TURN_SPEED,  -6.5,   6.5,   5.0);  // S1: Forward 47 Inches with 5 Sec timeout
-        encoderDrive(DRIVE_SPEED,  37,    37,    5.0);  // S2: Turn Right 12 Inches with 4 Sec timeout
+        encoderDrive(DRIVE_SPEED, -3,     3,     5.0);  // S1: Forward 47 Inches with 5 Sec timeout
+        /*encoderDrive(DRIVE_SPEED,  37,    37,   5.0);  // S2: Turn Right 12 Inches with 4 Sec timeout
         encoderDrive(TURN_SPEED,  -16,    16,    5.0);  // S3: Reverse 24 Inches with 4 Sec timeout
         encoderDrive(DRIVE_SPEED,  115,   115,   5.0);
         encoderDrive(TURN_SPEED,  -20,    20,    5.0);
         encoderDrive(DRIVE_SPEED,  125,   125,   5.0);
 
         robot.MarkerTipper.setPosition(0.0);            // S4: Stop and close the claw.
-        sleep(1000);     // pause for servos to move
+        sleep(1000);     // pause for servos to move*/
 
         telemetry.addData("Path", "Complete");
         telemetry.update();

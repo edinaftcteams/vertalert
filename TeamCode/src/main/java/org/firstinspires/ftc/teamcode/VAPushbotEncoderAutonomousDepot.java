@@ -126,15 +126,15 @@ public class VAPushbotEncoderAutonomousDepot extends LinearOpMode {
         robot.armlifter.setPower(0);
 
         encoderDrive(DRIVE_SPEED, -3.75, -3.75,  5.0);// S1: Forward 47 Inches with 5 Sec timeout
-        encoderDrive(TURN_SPEED,  -10,    10,    5.0);
-        encoderDrive(DRIVE_SPEED, -4.5,  -4.5,   5.0);  // S3: Reverse 24 Inches with 4 Sec timeout
+        encoderDrive(TURN_SPEED,  -9,     9,    5.0);
+        encoderDrive(DRIVE_SPEED, -3.5,  -3.5,   5.0);  // S3: Reverse 24 Inches with 4 Sec timeout
         encoderDrive(TURN_SPEED,  -12,    12,    5.0);
         encoderDrive(DRIVE_SPEED,  30,    30,    5.0);
-        encoderDrive(TURN_SPEED,  -14,    14,    5.0);
-        encoderDrive(DRIVE_SPEED,  25,    25,    5.0);
+        encoderDrive(TURN_SPEED,   7,    -7,     5.0);
+        encoderDrive(DRIVE_SPEED, -25,   -25,    5.0);
         robot.MarkerTipper.setPosition(0.0);            // S4: Stop and close the claw.
         sleep(1000);     // pause for servos to move
-        encoderDrive(DRIVE_SPEED,  78,    78,    5.0);
+        encoderDrive(DRIVE_SPEED,  90,    90,    5.0);
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
