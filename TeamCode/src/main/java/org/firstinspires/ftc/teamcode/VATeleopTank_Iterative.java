@@ -121,6 +121,8 @@ public class VATeleopTank_Iterative extends OpMode{
 
             telemetry.addData("drive", "%.2f", drive);
             telemetry.addData("rotate", "%.2f", rotate);
+            telemetry.addData("arm pos", robot.armlifter.getCurrentPosition());
+            telemetry.update();
 }
 
 

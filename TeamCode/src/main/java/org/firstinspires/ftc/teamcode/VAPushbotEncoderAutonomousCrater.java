@@ -69,7 +69,7 @@ public class VAPushbotEncoderAutonomousCrater extends LinearOpMode {
     /* Declare OpMode members. */
     VAPushbot     robot   = new VAPushbot();   // Use a Pushbot's hardware
     private ElapsedTime     runtime = new ElapsedTime();
-    private final int       COUNTS_TO_MOVE_ARM      = 1220 ;
+    private final int       COUNTS_TO_MOVE_ARM      = 17367 ;
 
     static final double     COUNTS_PER_MOTOR_REV    = 1220 ;    // eg: TETRIX Motor Encoder
     static final double     DRIVE_GEAR_REDUCTION    = 1.0 ;     // This is < 1.0 if geared UP
@@ -102,6 +102,9 @@ public class VAPushbotEncoderAutonomousCrater extends LinearOpMode {
         robot.leftfrontdrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         robot.rightfrontdrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
+        robot.armlifter.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.armlifter.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
         // Send telemetry message to indicate successful Encoder reset
         telemetry.addData("Path0",  "Starting at %7d :%7d",
                 robot.leftbackdrive.getCurrentPosition(),
@@ -116,6 +119,9 @@ public class VAPushbotEncoderAutonomousCrater extends LinearOpMode {
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
         robot.armlifter.setTargetPosition(COUNTS_TO_MOVE_ARM);
+        robot.armlifter.setPower(1);
+        while(robot.armlifter.isBusy()){}
+        robot.armlifter.setPower(0);
 
         encoderDrive(TURN_SPEED,  -6.5,   6.5,   5.0);  // S1: Forward 47 Inches with 5 Sec timeout
         encoderDrive(DRIVE_SPEED,  37,    37,    5.0);  // S2: Turn Right 12 Inches with 4 Sec timeout

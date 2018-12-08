@@ -71,7 +71,7 @@ public class VAPushbotEncoderAutonomousDepot extends LinearOpMode {
     /* Declare OpMode members. */
     VAPushbot     robot   = new VAPushbot();   // Use a Pushbot's hardware
     private ElapsedTime     runtime = new ElapsedTime();
-    private final int       COUNTS_TO_MOVE_ARM      = 1220 ;
+    private final int       COUNTS_TO_MOVE_ARM      = 17800 ;
 
     static final double     COUNTS_PER_MOTOR_REV    = 1440 ;    // eg: TETRIX Motor Encoder
     static final double     DRIVE_GEAR_REDUCTION    = 2.0 ;     // This is < 1.0 if geared UP
@@ -104,6 +104,9 @@ public class VAPushbotEncoderAutonomousDepot extends LinearOpMode {
         robot.leftfrontdrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         robot.rightfrontdrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
+        robot.armlifter.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.armlifter.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
         // Send telemetry message to indicate successful Encoder reset
         telemetry.addData("Path0",  "Starting at %7d :%7d",
                 robot.leftbackdrive.getCurrentPosition(),
@@ -118,17 +121,20 @@ public class VAPushbotEncoderAutonomousDepot extends LinearOpMode {
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
         robot.armlifter.setTargetPosition(COUNTS_TO_MOVE_ARM);
+        robot.armlifter.setPower(1);
+        while(robot.armlifter.isBusy()){}
+        robot.armlifter.setPower(0);
 
-        encoderDrive(TURN_SPEED,   6,    -6,  5.0);  // S1: Forward 47 Inches with 5 Sec timeout
-        encoderDrive(DRIVE_SPEED,  45,    45,    5.0);  // S2: Turn Right 12 Inches with 4 Sec timeout
-        encoderDrive(TURN_SPEED,  -15,    15,    5.0);  // S3: Reverse 24 Inches with 4 Sec timeout
-        encoderDrive(DRIVE_SPEED,  70,    70,    5.0);
-        encoderDrive(TURN_SPEED,  -22,    22,    5.0);
-        encoderDrive(DRIVE_SPEED,  125,   125,   5.0);
-
-
+        encoderDrive(DRIVE_SPEED, -3.75, -3.75,  5.0);// S1: Forward 47 Inches with 5 Sec timeout
+        encoderDrive(TURN_SPEED,  -14,    14,    5.0);// S2: Turn Right 12 Inches with 4 Sec timeout
+        encoderDrive(DRIVE_SPEED, -5,    -5,     5.0);  // S3: Reverse 24 Inches with 4 Sec timeout
+        encoderDrive(TURN_SPEED,  -13,    13,    5.0);
+        encoderDrive(DRIVE_SPEED,  53.5,  53.5,  5.0);
+        encoderDrive(TURN_SPEED,  -14,    14,    5.0);
+        encoderDrive(DRIVE_SPEED,  25,    25,    5.0);
         robot.MarkerTipper.setPosition(0.0);            // S4: Stop and close the claw.
         sleep(1000);     // pause for servos to move
+        encoderDrive(DRIVE_SPEED,  78,    78,    5.0);
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
