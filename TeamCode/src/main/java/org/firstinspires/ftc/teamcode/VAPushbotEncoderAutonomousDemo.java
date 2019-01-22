@@ -61,7 +61,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="Pushbot: Encoder Crater Autonomous", group="Pushbot")
+@Autonomous(name="Pushbot: Encoder Autonomous Demo", group="Pushbot")
 
 public class VAPushbotEncoderAutonomousDemo extends LinearOpMode {
 
@@ -123,11 +123,11 @@ public class VAPushbotEncoderAutonomousDemo extends LinearOpMode {
         robot.armlifter.setPower(0);*/
 
         encoderDrive(DRIVE_SPEED,  40,    40,   5.0);
-        encoderDrive(TURN_SPEED,  -20,    20,   5.0);
+        encoderDrive(TURN_SPEED,  -16,    16,   5.0);
         encoderDrive(DRIVE_SPEED,  40,    40,   5.0);
-        encoderDrive(TURN_SPEED,  -20,    20,   5.0);
+        encoderDrive(TURN_SPEED,  -16,    16,   5.0);
         encoderDrive(DRIVE_SPEED,  40,    40,   5.0);
-        encoderDrive(TURN_SPEED,  -20,    20,   5.0);
+        encoderDrive(TURN_SPEED,  -16,    16,   5.0);
 
         robot.MarkerTipper.setPosition(0.0);            // S4: Stop and close the claw.
         sleep(1000);     // pause for servos to move
