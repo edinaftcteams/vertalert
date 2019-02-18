@@ -77,6 +77,7 @@ public class VAPushbotEncoderAutonomousDemo extends LinearOpMode {
             (WHEEL_DIAMETER_INCHES * 3.1415);
     static final double     DRIVE_SPEED             = 0.6;
     static final double     TURN_SPEED              = 0.5;
+    static final double     SUPA_SPEED              = 1.0;
 
     @Override
     public void runOpMode() {
@@ -128,6 +129,7 @@ public class VAPushbotEncoderAutonomousDemo extends LinearOpMode {
         encoderDrive(TURN_SPEED,  -16,    16,   5.0);
         encoderDrive(DRIVE_SPEED,  40,    40,   5.0);
         encoderDrive(TURN_SPEED,  -16,    16,   5.0);
+        encoderDrive(SUPA_SPEED,   150,   150,  5.0);
 
         robot.MarkerTipper.setPosition(0.0);            // S4: Stop and close the claw.
         sleep(1000);     // pause for servos to move
