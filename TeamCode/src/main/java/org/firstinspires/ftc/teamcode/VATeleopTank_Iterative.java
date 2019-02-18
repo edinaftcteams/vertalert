@@ -62,7 +62,7 @@ public class VATeleopTank_Iterative extends OpMode{
 
         robot.init(hardwareMap);
 
-        telemetry.addData("Say", "Catch Tha Dub Bois");    //
+        telemetry.addData("Say", "Lets get this bread");    //
     }
 
     @Override
